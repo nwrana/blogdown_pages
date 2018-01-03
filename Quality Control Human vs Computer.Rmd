@@ -16,49 +16,48 @@ How information is filtered, prioritized, and actioned on the production floor a
 The Problem:  
 - We have an ageing workforce. Years of operator, process specialist, and management experience will be lost in the next 5 years  
 - Poor documentation and succession planning means most of this knowledge will be have to be relearned by a select few  
-          + doomed to repeat past mistakes, time and patience will be required to bring next generation up to current performance levels    
+    - doomed to repeat past mistakes, time and patience will be required to bring next generation up to current performance levels    
 
 ### Current Way of Thinking:  
 - There is a push in modern operations to digitize and document everything. The idea is that the more data we collect, the more information and knowledge can be captured about our process. More information leads to a more fundamental understanding of the complexities and intricacies of the relationships at play. Some of these relationships are obvious, others are not (major marketing strategy for many of today's industry 4.0 platforms). Using advances in machine learning, we can develop models that will ultimately learn what's important while filtering out what's not. The end goal is for the program the prioritize the decision making process instead of the person      
 
 Challenges with the Data Driven Approach:  
 - How do you accurately capture the human side to decision making ?     
-          + Currently, process data that monitors a machine can be captured relatively easily:  
-                    + ???sensors (thermocouples, pressure, amp draw, etc.), PLCs, shopfloor systems (MES, MOVEX)  
-          + Capturing the human side of how decisions are made is much more challenging:  
-                    + databases exist: operator comments (Sharepoint), customer complaints (MS Access), QA's, customer returns (MS Access), 8Ds (quality department), CMMS (maintenance)  
-                    + rely on human input -> subject to bias, error, open to interpretation  
-                    + human interaction: internal customer reviews (meeting minutes, hallway banter),  operator reports errors/issues, process expert intuition and deduction, reclassified offspec material  
-          + Capturing subjective data in grey areas like customer relations is complicated:  
-                    + ???Say a company tracks total $ value of customer returns. Customer reactions are not the same: Customer A finds 2 carbons in film, returns only 1 roll. Total return value = $500; Customer B finds 2 carbons in film, returns entire lot. Total return value = $30,000  
-                    + ???Size of complaint does not correlate with severity: Customer A finds 1 carbon in film, total return = $100. Customer A finds 1 carbon again, total return = $100. Customer A finds 1 carbon for a 3rd time, stops buying film altogether. $value did not indicate health of the company/customer relationship   
+    - Currently, process data that monitors a machine can be captured relatively easily:
+        - sensors (thermocouples, pressure, amp draw, etc.), PLCs, shopfloor systems (MES, MOVEX)  
+    - Capturing the human side of how decisions are made is much more challenging:  
+        - databases exist: operator comments (Sharepoint), customer complaints (MS Access), QA's, customer returns (MS Access), 8Ds (quality department), CMMS (maintenance)  
+        - rely on human input -> subject to bias, error, open to interpretation  
+        - human interaction: internal customer reviews (meeting minutes, hallway banter),  operator reports errors/issues, process expert intuition and deduction, reclassified offspec material  
+    - Capturing subjective data in grey areas like customer relations is complicated:  
+        - Say a company tracks total $ value of customer returns. Customer reactions are not the same: Customer A finds 2 carbons in film, returns only 1 roll. Total return value = $500; Customer B finds 2 carbons in film, returns entire lot. Total return value = $30,000  
+        - Size of complaint does not correlate with severity: Customer A finds 1 carbon in film, total return = $100. Customer A finds 1 carbon again, total return = $100. Customer A finds 1 carbon for a 3rd time, stops buying film altogether. $value did not indicate health of the company/customer relationship   
 
-Documenting everything can make a company legally responsible, whereas a human made decision can be go undetected  
-          + Example: Quality Related Issue - Carbons in Web  
-          Company has a contractual agreement with a customer to provide a product that conforms to a list of specifications. They know that achieving zero defects in the web is impossible, but getting a customer to agree to a certain amount of defect is also impossible. Company would never get the job in the first place so they agree to a contract knowing a fraction of that material will be returned:  
-                    + total carbon count < 10 per m^2  
-                    + individual carbon size < 6 mm  
-          + a particular job produces a film with carbons that are 'slightly' off spec (15 carbons per m^2, 4mm largest)  
-          + customer has much stricter quality requirements than most  
-          + Customer has accepted this product in the past without complaining, company passes quality test and sends material   
-          + Customer complains  
-                    + Company plays ignorant. Attributes this to operator error. Life goes on  
-                    + Company has  machine vision and has a database of carbon counts. Order can be traced back and shown that they knew count was above spec. There is a legal obligation to act  
+- Documenting everything can make a company legally responsible, whereas a human made decision can be go undetected  
+    - Example: Quality Related Issue - Carbons in Web  
+        - Company has a contractual agreement with a customer to provide a product that conforms to a list of specifications. They know that achieving zero defects in the web is impossible, but getting a customer to agree to a certain amount of defect is also impossible. Company would never get the job in the first place so they agree to a contract knowing a fraction of that material will be returned:  
+            - total carbon count < 10 per m^2  
+            - individual carbon size < 6 mm  
+        - a particular job produces a film with carbons that are 'slightly' off spec (15 carbons per m^2, 4mm largest)  
+        - customer has much stricter quality requirements than most  
+        - Customer has accepted this product in the past without complaining, company passes quality test and sends material   
+        - Customer complains  
+            - Company plays ignorant. Attributes this to operator error. Life goes on  
+            - Company has  machine vision and has a database of carbon counts. Order can be traced back and shown that they knew count was above spec. There is a legal obligation to act  
 
 Balancing quality and production - the notion of a dynamic specification:    
-Specifications are explicitly described in contracts for accountability purposes. However, what is agreed on, what can actually be produced, and what is acceptable ('good enough') is often left to interpretation:  
-          + Quality is measured from samples of material, which has uncertainty inherently built into it 
-???	often measuring a different spot on the sample may be the difference between PASS vs FAIL  
-          + Some specifications are too strict (Internal controls). The machine has never / will never achieve a level of quality. Material passes inspection even though internal quality control measure fails  
-          + The difference between certain quality levels make no difference to the quality of the final product  
-          + Company produces film that's offspec in transparency. QA machine measures a 13, spec calls for < 12. Film passes test, customer will never see the difference  
-          + Other tactics used to salvage material, reduce waste:  
-                    + reclassify material - can material be used for a different application ?  
-                    e.g. divided large job into 10 smaller jobs for smaller clients. Warned tech support that the temperature to make a seal would need to be higher in preparation for an increase in customer complaints  
-                    Send original customer bad material knowing that there is still a chance that the defect might go unnoticed.  
-                    
-Apologize/compensate later, if at all  
-          + Quality Assurance is non-value added but necessary  
+- Specifications are explicitly described in contracts for accountability purposes. However, what is agreed on, what can actually be produced, and what is acceptable ('good enough') is often left to interpretation:  
+    - Quality is measured from samples of material, which has uncertainty inherently built into it 
+        - often measuring a different spot on the sample may be the difference between PASS vs FAIL  
+    - Some specifications are too strict (Internal controls). The machine has never / will never achieve a level of quality. Material passes inspection even though internal quality control measure fails  
+    - The difference between certain quality levels make no difference to the quality of the final product  
+        - Company produces film that's offspec in transparency. QA machine measures a 13, spec calls for < 12. Film passes test, customer will never see the difference  
+    - Other tactics used to salvage material, reduce waste:  
+        - reclassify material - can material be used for a different application ?  
+        - e.g. divided large job into 10 smaller jobs for smaller clients. Warned tech support that the temperature to make a seal would need to be higher in preparation for an increase in customer complaints  
+        - Send original customer bad material knowing that there is still a chance that the defect might go unnoticed.  
+        Apologize/compensate later, if at all  
+- Quality Assurance is non-value added but necessary    
 
 How does a computer program accurately incorporate all of these decisions into its model ? People intuitively use probability to make decisions (risk/reward) but their decision trees run extremely deep:  
-          + People can be seen as an optimized neural network / Bayesian net 
+    - People can be seen as an optimized neural network / Bayesian net 
