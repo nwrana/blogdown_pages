@@ -1,0 +1,54 @@
+---
+title: "Inference"
+author: "Nathan Wrana"
+date: "January 3, 2018"
+output: html_document
+---
+
+## Inference  
+
+Given a graphical model, the term _inference_ refers to computing marginal and conditional probabilities of interest from the full joint probability distribution. This involves summing or integrating over a number of variables:  
+
+1. Inference is why we came up with this entire framework in order to make predictions from what we already know.   
+2. Inference is computationally hard. In some specific kinds of graphs, we can perform inference fairly efficiently, but on general graphs, it is intractable. So we need to use approximate algorithms that trade off accuracy for efficiency.  
+
+There are typically three types of questions we want to asked grpahical models:  
+1. Marginal inference: what is the probabiltiy of a given variable in a model ? For example, given a graoh with variables A, B, C, D, where variable A has 3 states 1,2,3 - find p(A=1), p(A=2), p(A=3) 
+2. Posterior inference: what is the posterior distribution for some hidden variables, given evidence (i.e. observed variables)
+3. MAP (maximum a posteriori) inference: what are the most likely values the variables in a model will take, given evidence (i.e condtioned on the observation of the states of current variables) ?   
+
+A graphical model specifies a complete joint probability distribution (JPD) over all the variables. Given the JPD, we can answer all possible inference queries by marginalization (summing out over irrelevant variables). However, the JPD has size O(2^n), where n is the number of nodes, and we have assumed each node can have 2 states (i.e. ON/OFF; 1/0; the problem becaomes exponentially harder given more states). Hence summing over the JPD takes exponential time. We now discuss more efficient methods, both exact and approximate.  
+
+## Exact Inference Methods  
+
+### Variable Elimination  
+
+### MAP Inference  
+
+Max-product (Viterbi) algorithm
+Move-making Algorithms  
+Max-sum message passing     
+
+### Belief Propagation
+
+Junction tree algorithm (clique tree algorithim)    
+Loopy Belief Propagation  
+
+
+The VE algorithm gives us only one final distribution. What if we want to find the marginal distributions for _all variables_ ? Instead of running variable elimination multiple times, we can do something smarter. 
+
+## Approximate Inference Methods  
+
+Exact inference methods may be prohibitively tim consuming for large graphical models. Approximate inference algorithms have been developed for graphical models, most of which fall into two categories.  
+
+### Sampling-based methods  
+
+Monte-Carlo sampling  
+Importance sampling  
+Markov Chain Monte-Carlo  
+- Metropolis-Hastings  
+- Gibbs sampling
+
+### Variational methods
+
+

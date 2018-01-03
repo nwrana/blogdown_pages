@@ -1,0 +1,8 @@
+---
+title: "Bayesian Networks"
+author: "Nathan Wrana"
+date: "January 3, 2018"
+output: html_document
+---
+
+

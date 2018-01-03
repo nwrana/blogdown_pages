@@ -16,6 +16,9 @@ Please check out the following great links:
 2. [PGM Tutorial - Part 2. Goyal, Parsoon. 2017](https://blog.statsbot.co/probabilistic-graphical-models-tutorial-d855ba0107d1)  
 3. [Understanding Probabilistic Graphical Models Intuitively. Sharma, Neeraj. 2016](https://medium.com/@neerajsharma_28983/intuitive-guide-to-probability-graphical-models-be81150da7a)
 4. [A Brief Introduction to Graphical Models and Bayesian Networks. Murphy, Kevin. 1998](http://www.cs.ubc.ca/~murphyk/Bayes/bnintro.html#explainaway)
+5. [A Bird's Eye View. Parikh, Neal. 2011](https://docs.google.com/file/d/0B_hicYJxvbiOc1ViZTRxbnhSU1cza1VhOFlhRlRuQQ/edit)
+6. [Stanford CS228 Course Notes. Kuleshov, Volodymyr and Ermon, Stepano. 2017](https://ermongroup.github.io/cs228-notes/)
+7. [Graphical Models in a Nutshell. Koller, Friedman, Getoor, Taskar.](https://ai.stanford.edu/~koller/Papers/Koller+al:SRL07.pdf)
 
 ## Prelude
 
@@ -23,16 +26,39 @@ I believe anyone can create a model in R or Python by simply calling a function 
 
 This series will be broken into five separate posts. This first is meant to be a gentle *Introduction* into the world of PGMs, exploring what they are used for and why we need them. I will introduce basic concepts in Probabiltiy Theory, Statistics, and Graph Theory. The second and third posts will discuss *Representation*, or what exactly a graphical model is. We will study __Bayesian Networks__ first then move on to __Markov Fields__. The fourth post will discuss *Inference* and how we can use these models to efficiently answer probabilistic queries. Finally, the fifth and last post will focus on *Learning*, or what do we do if we don't know what the mode is. In both __Inference__ and __Learning__ we will explore the most common algorithms and actually build them from the bottom up.  
 
+
+
+
+
 ## Why Do We Need PGMs ?
+
+Modeling complex real world situations requires accounting for uncertainty, and probabilistic models are the natural way to do so.    
+
+- PGMs are models that incorporate randomness (probability distributions of random variables)into its structure
+- Modeling real world processes involves a significant amount of uncertainty. Using a framework that incorporates randomness in the form of probability distributions is a reasonable approach
+- PGMs offer a principled way of reasoning about uncertainty that uses ideas from probability and graph theory to derive efficient machine learning algorithms 
+- PGMs are highly explainable, and you can go back and look at the chain of reasoning. For some problem domains, this part is more important than prediction accuracy (e.g neural networks)  
+
+Representation - how to specify a model 
+- probabilities will be described by graphs whose properties will allow us to make assumptions that simplify the complexity of the problem (e.g. indedendence)
+
+Inference - how to ask the model questions 
+- given a model, how do we extract answers to relevant questions ?  
+- _marginal inference_  
+- _maximum a posteriori (MAP) inference_  
+- inference is typically NP-hard, and whether or not an infernce question can be answered will depend on the structure of the graph. However, if the problem is intractablem useful approximation methods are available  
+
+Learning - how to fit the model to real-world data
+
 
 A Probabilistic Graphical Model (PGM)is a powerful framework that can be use to learn models that need to incorporate **dependency**. For example, in natrual language processing, the A lot of common problems in machine learning involve classification of isolated data points that are independent from each other. For example, given a image, predict whether it contains a cat or a dog. However it turns out that many problems don't fit this framework and it is not obvious  
 
 ## Neural Network - PGM Relationship  
 
-Both NN and PGMs solve inference and learning problems but the major difference is how they incorporate prior knowledge into the exisiting model. PGMs have the advantage over deep networks in that they are highly explainable, and you can go back and look at the chain of reasoning. For some problem domains, this part is more important than prediction accuracy.
+Both NN and PGMs solve inference and learning problems but the major difference is how they incorporate prior knowledge into the exisiting model. PGMs have the advantage over deep networks in that they are 
 
 
-## PGM Framework
+## PGM Representation (Framework)
 
 Probabilistic Graphical Models are graph-like structures made up of nodes and connecting lines. Each node represents a random variable that assumes a particular distribution, and each connecting line is called an *edge*, used to encode a relationship between nodes. Depending on whether the graph is directed or undirected, i.e. whether information flows strictly from one node to another or in both directions, we can classify a graphical model as being either a **Bayesian Network** or **Markov Network**, respectively.  
 
